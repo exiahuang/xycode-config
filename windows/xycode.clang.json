@@ -1,0 +1,45 @@
+{
+    "tasks": [
+        {
+            "label": "make:version",
+            "command": "make -v"
+        },
+        {
+            "label": "make:clean",
+            "command": "make clean"
+        },
+        {
+            "label": "make:hello",
+            "command": "make hello"
+        },
+        {
+            "label": "make:all",
+            "command": "make all"
+        },
+        {
+            "label": "make:target",
+            "command": "make ${input:make_target}"
+        },
+        {
+            "label": "gcc:compile",
+            "cwd": "${fileDirname}",
+            "command": "gcc -o ${fileBasenameNoExtension} ${file}"
+        },
+        {
+            "label": "gcc:compile_and_run",
+            "cwd": "${fileDirname}",
+            "command": "gcc -o ${fileBasenameNoExtension} ${file} && ${fileBasenameNoExtension}"
+        }
+    ],
+    "variables": {},
+    "onSaveEvents": [
+        {
+            "label": "compile and run c file",
+            "description": "compile and run c file after save",
+            "filetypes": [".c"],
+            "inActive": true,
+            "cwd": "${fileDirname}",
+            "command": "gcc -o ${fileBasenameNoExtension} ${file} && ${fileBasenameNoExtension}"
+        }
+    ]
+}

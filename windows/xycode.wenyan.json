@@ -1,0 +1,53 @@
+{
+    "tasks": [
+        {
+            "label" : "wenyan:help",
+            "description" : "文言文編程語言 A programming language for the ancient Chinese",
+            "command": "node ${wenyan_exe}"
+        },
+        {
+            "label" : "wenyan:download",
+            "description" : "use curl download wenyan.js",
+            "cwd": "${HOME}/.xycode/script/",
+            "command": "curl -sO https://raw.githubusercontent.com/LingDong-/wenyan-lang/master/build/wenyan.js",
+            "beforeTriggers" : [{
+                "type": "buildin",
+                "fn": "Mkdirs",
+                "params" : ["${HOME}/.xycode/script/"]
+            }],
+            "afterTriggers" : []
+        },
+        {
+            "label" : "wenyan:compile-to-js:current_file",
+            "description" : "編譯當前文件成JS",
+            "cwd" : "${fileDirname}",
+            "command": "node ${wenyan_exe} ${file} -o ${fileBasenameNoExtension}.js"
+        },
+        {
+            "label" : "wenyan:compile-to-py:current_file",
+            "description" : "編譯當前文件成Python",
+            "cwd" : "${fileDirname}",
+            "command": "node ${wenyan_exe} ${file} -o ${fileBasenameNoExtension}.py -l py"
+        },
+        {
+            "label" : "wenyan:compile_and_run:current_file",
+            "description" : "編譯當前文件并且執行",
+            "cwd" : "${fileDirname}",
+            "command": "node ${wenyan_exe} ${file} -o ${fileBasenameNoExtension}.js --exec true"
+        }
+    ],
+    "variables" : {
+        "wenyan_exe" : {
+            "label" : "wenyan_exe",
+            "value" : "${HOME}/.xycode/script/wenyan.js"
+        }
+    },
+    "onSaveEvents" : [
+        {
+            "description" : "run wenyan script after save.",
+            "filetypes" : [".wy"],
+            "cwd": "${fileDirname}",
+            "command" : "node ${wenyan_exe} ${file} -o ${fileBasenameNoExtension}.js --exec true"
+        }
+    ]
+}

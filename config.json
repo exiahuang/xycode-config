@@ -1,0 +1,62 @@
+[
+    {
+        "name": "xycode.sfdx.json",
+        "label": "Salesforce DX Cli Command, SFDX",
+        "description": "Salesforce DX, sfdx develope cli",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.prettier.json",
+        "label": "Prettier",
+        "description": "Prettier is an opinionated code formatter.",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.dotnet_core.json",
+        "label": "dotnet core",
+        "description": "dotnet core command, wpf, mvc...",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.jekyll.json",
+        "label": "jekyll command",
+        "description": "Jekyll is a blog-aware static site generator in Ruby.",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.hexo.json",
+        "label": "hexo blog",
+        "description": "Hexo is a fast, simple & powerful blog framework powered by Node.js.",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.mkdocs.json",
+        "label": "MkDocs",
+        "description": "MkDocs is a fast, simple and downright gorgeous static site generator",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.clang.json",
+        "label": "xycode.clang.json",
+        "description": "C is a powerful general-purpose programming language. ",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.wenyan.json",
+        "label": "Wenyan 文言文編程語言",
+        "description": "文言文編程語言 A programming language for the ancient Chinese. ",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.nodejs.json",
+        "label": "nodejs develope",
+        "description": "",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.python.json",
+        "label": "python develope",
+        "description": "",
+        "platform": ["windows", "linux", "mac"]
+    }
+]
