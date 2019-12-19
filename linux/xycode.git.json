@@ -1,0 +1,330 @@
+{
+    "tasks": [
+        {
+            "label": "git:version",
+            "command": "git --version"
+        },
+        {
+            "label": "git:init",
+            "command": "git init"
+        },
+        {
+            "label": "git:add",
+            "command": "git add ${multiFilesDailog:git_add_files}"
+        },
+        {
+            "label": "git:add:all",
+            "command": "git add --all"
+        },
+        {
+            "label": "git:clone",
+            "command": "git clone ${input:git_url}"
+        },
+        {
+            "label": "git:log:pretty",
+            "command": "git log ${git_log_format} --date-order"
+        },
+        {
+            "label": "git:log:pretty:graph",
+            "command": "git log ${git_log_format} --date-order --graph"
+        },
+        {
+            "label": "git:log:pretty:5",
+            "command": "git log -5 ${git_log_format}"
+        },
+        {
+            "label": "git:log:pretty:n",
+            "command": "git log -${input:number} ${git_log_format}"
+        },
+        {
+            "label": "git:log:pretty:graph:n",
+            "command": "git log -${input:number} ${git_log_format} --graph"
+        },
+        {
+            "label": "git:fetch:all",
+            "command": "git fetch --all"
+        },
+        {
+            "label": "git:pull:all",
+            "command": "git pull --all"
+        },
+        {
+            "label": "git:branch:list",
+            "command": "git branch ${select:git_branch}"
+        },
+        {
+            "label": "git:branch:list_local",
+            "command": "git branch"
+        },
+        {
+            "label": "git:checkout:gh-pages",
+            "command": "git checkout gh-pages"
+        },
+        {
+            "label": "git:checkout:branch_name",
+            "command": "git checkout ${input:git_branch_name}"
+        },
+        {
+            "label": "git:checkout:new_branch_name",
+            "command": "git checkout -b ${input:git_branch_name}"
+        },
+        {
+            "label": "git:branch:delete",
+            "command": "git branch --delete ${input:git_branch_name}"
+        },
+        {
+            "label": "git:branch:create_at_commit",
+            "command": "git branch ${input:new_branch_name} ${input:sha1_of_commit}"
+        },
+        {
+            "label": "git:checkout:master",
+            "command": "git checkout master"
+        },
+        {
+            "label": "git:tag",
+            "command": "git tag"
+        },
+        {
+            "label": "git:status",
+            "command": "git status -s"
+        },
+        {
+            "label": "git:log",
+            "command": "git log"
+        },
+        {
+            "label": "git:log:stat",
+            "command": "git log --stat"
+        },
+        {
+            "label": "git:log:search",
+            "command": "git log ${git_log_format} --grep ${input:keyword} "
+        },
+        {
+            "label": "git:log:search:grep",
+            "command": "git log ${git_log_format} | grep ${input:keyword} "
+        },
+        {
+            "label": "git:log:tag",
+            "command": "git log ${input:tag} HEAD --pretty=format:%s"
+        },
+        {
+            "label": "git:log:feature",
+            "command": "git log ${input:tag} HEAD --grep feature"
+        },
+        {
+            "label": "git:log:follow",
+            "command": "git log --follow [file]"
+        },
+        {
+            "label": "git:log:diff",
+            "command": "git log -p ${input:file}"
+        },
+        {
+            "label": "git:log:5",
+            "command": "git log -5 --pretty --oneline"
+        },
+        {
+            "label": "git:shortlog",
+            "command": "git shortlog -sn"
+        },
+        {
+            "label": "git:blame",
+            "command": "git blame ${input:file}"
+        },
+        {
+            "label": "git:diff",
+            "command": "git diff"
+        },
+        {
+            "label": "git:diff:cached",
+            "command": "git diff --cached ${input:file}"
+        },
+        {
+            "label": "git:diff:head",
+            "command": "git diff HEAD"
+        },
+        {
+            "label": "git:diff:branch:name-only",
+            "command": "git diff ${input:branch1}...${input:branch2} --name-only"
+        },
+        {
+            "label": "git:diff:branch",
+            "command": "git diff ${input:branch1}...${input:branch2} "
+        },
+        {
+            "label": "git:diff:today",
+            "command": "git diff --shortstat \"@{0 day ago}\""
+        },
+        {
+            "label": "git:diff:file",
+            "command": "git diff -- \"${file}\""
+        },
+        {
+            "label": "git:windiff",
+            "command": "git windiff"
+        },
+        {
+            "label": "git:windiff:cached",
+            "command": "git windiff --cached ${input:file}"
+        },
+        {
+            "label": "git:windiff:head",
+            "command": "git windiff HEAD"
+        },
+        {
+            "label": "git:windiff:branch:name-only",
+            "command": "git windiff ${input:branch1}...${input:branch2} --name-only"
+        },
+        {
+            "label": "git:windiff:branch",
+            "command": "git windiff ${input:branch1}...${input:branch2} "
+        },
+        {
+            "label": "git:windiff:today",
+            "command": "git windiff --shortstat \"@{0 day ago}\""
+        },
+        {
+            "label": "git:windiff:file",
+            "command": "git windiff -- \"${file}\""
+        },
+        {
+            "label": "git:show",
+            "command": "git show"
+        },
+        {
+            "label": "git:show:commit",
+            "command": "git show ${input:commit_id}"
+        },
+        {
+            "label": "git:show:commit:name-only",
+            "command": "git show --name-only ${input:commit_id}"
+        },
+        {
+            "label": "git:show:commit:filename",
+            "command": "git show ${input:commit}:${input:file}"
+        },
+        {
+            "label": "git:commit:diff",
+            "command": "git diff ${input:commit1} ${input:commit2} --stat "
+        },
+        {
+            "label": "git:reflog",
+            "command": "git reflog"
+        },
+        {
+            "label": "git:commit",
+            "command": "git commit -m \"${input:git_commit_message}\""
+        },
+        {
+            "label": "git:remote:add:origin",
+            "command": "git remote add origin ${input:git_remote_url}"
+        },
+        {
+            "label": "git:remote:verbose",
+            "command": "git remote -v"
+        },
+        {
+            "label": "git:push:origin_to_remote_branch",
+            "command": "git push -u origin ${input:git_remote_branch}"
+        },
+        {
+            "label": "git:stash:save",
+            "command": "git stash save \"${input:git_statsh_message}\""
+        },
+        {
+            "label": "git:stash:show",
+            "command": "git stash show ${input:git_statsh_name}"
+        },
+        {
+            "label": "git:stash:show:p",
+            "command": "git stash show ${input:git_statsh_name} -p"
+        },
+        {
+            "label": "git:stash:list",
+            "command": "git stash list"
+        },
+        {
+            "label": "git:stash:apply",
+            "command": "git stash apply ${input:git_statsh_name}"
+        },
+        {
+            "label": "git:stash:drop",
+            "command": "git stash drop ${input:git_statsh_name}"
+        },
+        {
+            "label": "git:reset",
+            "command": "git reset HEAD ."
+        },
+        {
+            "label": "git:reset:file_or_dir",
+            "command": "git reset ${input:git_reset_file_or_dir}"
+        },
+        {
+            "label": "git:config:open",
+            "command": "code .git/config"
+        },
+        {
+            "label": "git:config:set",
+            "command": "git config ${select:git_config_key} ${input:git_config_val}"
+        },
+        {
+            "label": "git:config:set:core.quotepath:false",
+            "command": "git config core.quotepath false"
+        },
+        {
+            "label": "git:config:set:core.autocrlf:false",
+            "command": "git config core.autocrlf false"
+        },
+        {
+            "label": "git:config:set:push.default:simple",
+            "command": "git config push.default simple"
+        },
+        {
+            "label": "git:config:set:credential.helper:wincred",
+            "command": "git config credential.helper wincred"
+        },
+        {
+            "label": "git:commit:author:all:change",
+            "command": "git filter-branch -f --env-filter \"GIT_AUTHOR_NAME='${input:git_user_name}'; GIT_AUTHOR_EMAIL='${input:git_user_email}'; GIT_COMMITTER_NAME='${input:git_user_name}'; GIT_COMMITTER_EMAIL='${input:git_user_email}';\" HEAD "
+        },
+        {
+            "label": "git:commit:author:change",
+            "command": "git commit --amend --author=\"${input:git_user_name} <${input:git_user_email}>\""
+        }
+    ],
+    "variables": {
+        "git_branch": {
+            "label": "git branch ",
+            "value": ["--list", "--all", "--remotes"]
+        },
+        "git_log_format": {
+            "label": "git log formatter",
+            "value": "--pretty=format:\"%h [%cd] %s %d [%an]\" --date=format:\"%Y/%m/%d %H:%M:%S\""
+        },
+        "git_statsh_name": {
+            "label": "git statsh name",
+            "value": "stash@{0}"
+        },
+        "git_log_number": {
+            "label": "git log size",
+            "value": 10
+        },
+        "git_config_key": {
+            "label": "git config key",
+            "value": [
+                "user.name",
+                "user.email",
+                "core.ignorecase",
+                "core.quotepath",
+                "core.safecrlf",
+                "core.autocrlf"
+            ]
+        },
+        "git_add_files": {
+            "label": "git config key",
+            "separator": " ",
+            "value": ""
+        }
+    }
+}

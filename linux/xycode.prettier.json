@@ -1,0 +1,22 @@
+{
+    "tasks": [],
+    "variables": {},
+    "onSaveEvents": [
+        {
+            "label": "pretty code.",
+            "description": "Prettier is an opinionated code formatter.",
+            "filetypes": [".json", ".javascript", ".js", ".md", ".css", ".vue"],
+            "inActive": true,
+            "cwd": "${fileDirname}",
+            "command": "prettier --write \"${file}\" --single-quote=true --end-of-line=lf --arrow-parens=always --tab-width=4"
+        },
+        {
+            "label": "pretty code.",
+            "description": "Prettier is an opinionated code formatter.",
+            "filetypes": [".yaml", ".yml"],
+            "inActive": true,
+            "cwd": "${fileDirname}",
+            "command": "prettier --write \"${file}\" --single-quote=true --end-of-line=lf --arrow-parens=always --tab-width=4"
+        }
+    ]
+}

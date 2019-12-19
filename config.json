@@ -1,5 +1,11 @@
 [
     {
+        "name": "xycode.git.json",
+        "label": "Git Command",
+        "description": "Git is easy to learn and has a tiny footprint with lightning fast performance.",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
         "name": "xycode.sfdx.json",
         "label": "Salesforce DX Cli Command, SFDX",
         "description": "Salesforce DX, sfdx develope cli",
@@ -12,27 +18,9 @@
         "platform": ["windows", "linux", "mac"]
     },
     {
-        "name": "xycode.dotnet_core.json",
-        "label": "dotnet core",
-        "description": "dotnet core command, wpf, mvc...",
-        "platform": ["windows", "linux", "mac"]
-    },
-    {
-        "name": "xycode.jekyll.json",
-        "label": "jekyll command",
-        "description": "Jekyll is a blog-aware static site generator in Ruby.",
-        "platform": ["windows", "linux", "mac"]
-    },
-    {
         "name": "xycode.hexo.json",
         "label": "hexo blog",
         "description": "Hexo is a fast, simple & powerful blog framework powered by Node.js.",
-        "platform": ["windows", "linux", "mac"]
-    },
-    {
-        "name": "xycode.mkdocs.json",
-        "label": "MkDocs",
-        "description": "MkDocs is a fast, simple and downright gorgeous static site generator",
         "platform": ["windows", "linux", "mac"]
     },
     {

@@ -1,0 +1,33 @@
+{
+    "tasks": [
+        {
+            "label": "python:run",
+            "description": "run python file",
+            "cwd": "${fileDirname}",
+            "command": "python \"${file}\""
+        },
+        {
+            "label": "python:version",
+            "description": "print python version",
+            "command": "python --version"
+        }
+    ],
+    "variables": {},
+    "onSaveEvents": [
+        {
+            "label": "format python code",
+            "description": "format python code",
+            "filetypes": [".py"],
+            "inActive": true,
+            "command": "yapf \"${file}\" --style \"google\" -i"
+        },
+        {
+            "label": "run python file",
+            "description": "run python file",
+            "filetypes": [".py"],
+            "inActive": true,
+            "cwd": "${fileDirname}",
+            "command": "python \"${file}\""
+        }
+    ]
+}

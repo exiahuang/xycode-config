@@ -1,0 +1,34 @@
+{
+    "tasks": [
+        {
+            "label": "node:run",
+            "description": "run node file",
+            "cwd": "${fileDirname}",
+            "command": "node \"${file}\""
+        },
+        {
+            "label": "node:version",
+            "description": "print node version",
+            "command": "node -v"
+        }
+    ],
+    "variables": {},
+    "onSaveEvents": [
+        {
+            "label": "eslint",
+            "description": "A pluggable and configurable linter tool for identifying and reporting on patterns in JavaScript.",
+            "filetypes": [".js"],
+            "inActive": true,
+            "cwd": "${fileDirname}",
+            "command": "eslint \"${file}\""
+        },
+        {
+            "label": "run js file",
+            "description": "run javascript",
+            "filetypes": [".js"],
+            "inActive": true,
+            "cwd": "${fileDirname}",
+            "command": "node \"${file}\""
+        }
+    ]
+}

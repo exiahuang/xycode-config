@@ -1,0 +1,75 @@
+{
+    "tasks": [
+        {
+            "label": "hexo:init:project",
+            "description": "Initializes a hexo website",
+            "command": "hexo init \"${openFolderDailog:hexo_blog_directory}\" && code ${hexo_blog_directory}",
+            "beforeTriggers": [],
+            "afterTriggers": []
+        },
+        {
+            "label": "hexo:new",
+            "description": "Creates a new article.",
+            "command": "hexo new \"${input:title}\"",
+            "beforeTriggers": [],
+            "afterTriggers": [
+                {
+                    "type": "buildin",
+                    "fn": "OpenFile",
+                    "params": ["source/_posts/${title}.md"]
+                }
+            ]
+        },
+        {
+            "label": "hexo:generate",
+            "description": "Generates static files.",
+            "command": "hexo generate"
+        },
+        {
+            "label": "hexo:publish",
+            "description": "Publishes a draft.",
+            "command": "hexo publish ${singleFileDailog:file}"
+        },
+        {
+            "label": "hexo:server",
+            "description": "Starts a local server. By default, this is at http://localhost:4000/.",
+            "termial": { "name": "hexo" },
+            "command": "hexo server --port ${input:hexo_port}"
+        },
+        {
+            "label": "hexo:clean",
+            "description": "Cleans the cache file (db.json) and generated files (public).",
+            "command": "hexo clean"
+        },
+        {
+            "label": "hexo:list",
+            "description": "Lists all routes.",
+            "command": "hexo list ${select:hexo_file_type}"
+        },
+        {
+            "label": "hexo:version",
+            "description": "Displays version information.",
+            "command": "hexo version"
+        },
+        {
+            "label": "hexo:debug",
+            "description": "",
+            "command": "hexo --debug"
+        },
+        {
+            "label": "hexo:deploy",
+            "description": "Deploys your website.",
+            "command": "hexo deploy"
+        }
+    ],
+    "variables": {
+        "hexo_port": {
+            "label": "hexo server port",
+            "value": "4000"
+        },
+        "hexo_file_type": {
+            "label": "hexo server port",
+            "value": ["page", "post", "route", "tag", "category"]
+        }
+    }
+}
