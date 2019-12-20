@@ -42,11 +42,13 @@
         {
             "label": "mkdocs:build",
             "description": "",
+            "termial": { "name": "mkdocs" },
             "command": "mkdocs build"
         },
         {
             "label": "mkdocs:gh-deploy",
             "description": "",
+            "termial": { "name": "mkdocs" },
             "command": "mkdocs gh-deploy"
         },
         {

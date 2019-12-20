@@ -17,11 +17,6 @@
             "command": "mkdocs serve -a \"${input:mkdoc_ip_port}\""
         },
         {
-            "label": "mkdocs:open",
-            "description": "",
-            "command": "explorer http://${input:mkdoc_ip_port}"
-        },
-        {
             "label": "mkdocs:new:file",
             "description": "",
             "command": "touch ${input:mkdoc_new_file}",
@@ -42,11 +37,13 @@
         {
             "label": "mkdocs:build",
             "description": "",
+            "termial": { "name": "mkdocs" },
             "command": "mkdocs build"
         },
         {
             "label": "mkdocs:gh-deploy",
             "description": "",
+            "termial": { "name": "mkdocs" },
             "command": "mkdocs gh-deploy"
         },
         {
