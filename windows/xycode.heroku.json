@@ -1,0 +1,131 @@
+{
+    "tasks": [
+        {
+            "description": "login with your Heroku credentials",
+            "label": "heroku:login",
+            "termial": { "name": "heroku" },
+            "command": "heroku login"
+        },
+        {
+            "description": "clears local login credentials and invalidates API session",
+            "label": "heroku:logout",
+            "termial": { "name": "heroku" },
+            "command": "heroku logout"
+        },
+        {
+            "description": "",
+            "label": "heroku:key",
+            "termial": { "name": "heroku" },
+            "command": "heroku keys"
+        },
+        {
+            "description": "",
+            "label": "heroku:key:add",
+            "termial": { "name": "heroku" },
+            "command": "heroku keys:add"
+        },
+        {
+            "description": "creates a new app",
+            "label": "heroku:create",
+            "termial": { "name": "heroku" },
+            "command": "heroku create ${input:heroku_app_name}"
+        },
+        {
+            "description": "Initialize a git repository in a new or existing directory",
+            "label": "heroku:git:remote",
+            "termial": { "name": "heroku" },
+            "command": "heroku git:remote -a ${input:heroku_app_name}"
+        },
+        {
+            "description": "Heroku Git Clone",
+            "label": "heroku:git:clone",
+            "termial": { "name": "heroku" },
+            "command": "heroku git:clone -a ${input:heroku_app_name}"
+        },
+        {
+            "description": "",
+            "label": "heroku:git:push_heroku_to_master",
+            "termial": { "name": "heroku" },
+            "command": "git push heroku ${input:heroku_master}"
+        },
+        {
+            "description": "open the app in a web browser",
+            "label": "heroku:open",
+            "termial": { "name": "heroku" },
+            "command": "heroku open -a ${input:heroku_app_name}"
+        },
+        {
+            "description": "open the app in a web browser",
+            "label": "heroku:open:select",
+            "termial": { "name": "heroku" },
+            "command": "heroku open -a ${input:heroku_app_name}"
+        },
+        {
+            "description": "display recent log output",
+            "label": "heroku:logs",
+            "termial": { "name": "heroku" },
+            "command": "heroku logs"
+        },
+        {
+            "description": "tail heroku logs",
+            "label": "heroku:logs:tail",
+            "termial": { "name": "heroku" },
+            "command": "heroku logs --app ${input:heroku_app_name} --tail --force-colors "
+        },
+        {
+            "description": "list dynos for an app",
+            "label": "heroku:ps",
+            "termial": { "name": "heroku" },
+            "command": "heroku ps --app ${input:heroku_app_name}"
+        },
+        {
+            "description": "open a psql shell to the database",
+            "label": "heroku:Postgres:login",
+            "termial": { "name": "heroku" },
+            "command": "heroku pg:psql ${input:DATABASE}"
+        },
+        {
+            "description": "run a one-off process inside a heroku dyno",
+            "label": "heroku:run",
+            "termial": { "name": "heroku" },
+            "command": "heroku run \"${input:command}\""
+        },
+        {
+            "description": "display the config vars for an app",
+            "label": "heroku:config",
+            "termial": { "name": "heroku" },
+            "command": "heroku config"
+        },
+        {
+            "description": "set one or more config vars",
+            "label": "heroku:config:set",
+            "termial": { "name": "heroku" },
+            "command": "heroku config:set ${input:heroku_config_key}:${input:heroku_config_value}"
+        },
+        {
+            "description": "list domains for an app",
+            "label": "heroku:domains",
+            "termial": { "name": "heroku" },
+            "command": "heroku domains"
+        },
+        {
+            "description": "lists your add-ons and attachments",
+            "label": "heroku:addons",
+            "termial": { "name": "heroku" },
+            "command": "heroku addons"
+        },
+        {
+            "description": "heroku addons add",
+            "label": "heroku:addons:add",
+            "termial": { "name": "heroku" },
+            "command": "heroku addons:add ${input:heroku_addon_name}"
+        },
+        {
+            "description": "heroku",
+            "label": "heroku:list",
+            "termial": { "name": "heroku" },
+            "command": "heroku list"
+        }
+    ],
+    "variables": {}
+}

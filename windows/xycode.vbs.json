@@ -1,0 +1,14 @@
+{
+    "tasks": [],
+    "variables": {},
+    "onSaveEvents": [
+        {
+            "label": "run vbs",
+            "description": "run vbs file after save",
+            "filetypes": [".vbs"],
+            "inActive": false,
+            "cwd": "${fileDirname}",
+            "command": "CScript.exe ${file}"
+        }
+    ]
+}

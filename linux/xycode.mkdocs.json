@@ -1,0 +1,70 @@
+{
+    "tasks": [
+        {
+            "label": "mkdocs:project:new",
+            "description": "init mkdocs project",
+            "command": "mkdocs new \"${openFolderDailog:mkdocs_project_directory}\" && code ${mkdocs_project_directory}"
+        },
+        {
+            "label": "mkdocs:project:new:in_current_workspace",
+            "description": "init mkdocs project in current workspace directory",
+            "command": "mkdocs new ."
+        },
+        {
+            "label": "mkdocs:serve",
+            "description": "",
+            "termial": { "name": "mkdocs" },
+            "command": "mkdocs serve -a \"${input:mkdoc_ip_port}\""
+        },
+        {
+            "label": "mkdocs:open",
+            "description": "",
+            "command": "explorer http://${input:mkdoc_ip_port}"
+        },
+        {
+            "label": "mkdocs:new:file",
+            "description": "",
+            "command": "touch ${input:mkdoc_new_file}",
+            "beforeTriggers": [],
+            "afterTriggers": [
+                {
+                    "type": "buildin",
+                    "fn": "OpenFile",
+                    "params": ["${mkdoc_new_file}"]
+                }
+            ]
+        },
+        {
+            "label": "mkdocs:serve:help",
+            "description": "",
+            "command": "mkdocs serve --help"
+        },
+        {
+            "label": "mkdocs:build",
+            "description": "",
+            "command": "mkdocs build"
+        },
+        {
+            "label": "mkdocs:gh-deploy",
+            "description": "",
+            "command": "mkdocs gh-deploy"
+        },
+        {
+            "label": "mkdocs:gh-deploy:help",
+            "description": "",
+            "command": "mkdocs gh-deploy --help"
+        }
+    ],
+    "variables": {
+        "mkdoc_ip_port": {
+            "label": "mkdoc_ip_port",
+            "description": "",
+            "value": "127.0.0.1:9000"
+        },
+        "mkdoc_new_file": {
+            "label": "mkdoc_new_file",
+            "description": "",
+            "value": "./docs/new_file.md"
+        }
+    }
+}

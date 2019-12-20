@@ -1,0 +1,41 @@
+{
+    "tasks": [
+        {
+            "label": "npm:install",
+            "description": "",
+            "termial": { "name": "npm" },
+            "command": "npm install"
+        },
+        {
+            "label": "npm:start",
+            "description": "",
+            "termial": { "name": "npm" },
+            "command": "npm start"
+        },
+        {
+            "label": "npm:run:build",
+            "description": "",
+            "termial": { "name": "npm" },
+            "command": "npm run build"
+        },
+        {
+            "label": "npm:run:dev",
+            "description": "",
+            "termial": { "name": "npm" },
+            "command": "npm run dev"
+        },
+        {
+            "label": "npm:install:node_module",
+            "description": "",
+            "termial": { "name": "npm" },
+            "command": "npm install ${input:node_module} --save"
+        },
+        {
+            "label": "npm:install:g:node_module",
+            "description": "",
+            "termial": { "name": "npm" },
+            "command": "npm install ${input:node_module} -g"
+        }
+    ],
+    "variables": {}
+}

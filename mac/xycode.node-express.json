@@ -1,0 +1,56 @@
+{
+    "tasks": [
+        {
+            "label": "express:install",
+            "description": "",
+            "termial": { "name": "express" },
+            "command": "npm install express nodemon morgan cookie-parser --save"
+        },
+        {
+            "label": "express:init",
+            "description": "init express project",
+            "command": "express ${openFolderDailog:workspaceFolder} --view ${select:express_view_engine} --css ${select:express_css_engine} --git && code ${workspaceFolder}"
+        },
+        {
+            "label": "express:run:default",
+            "description": "",
+            "termial": { "name": "express" },
+            "command": "node ./bin/www"
+        },
+        {
+            "label": "express:nodemon:run",
+            "description": "",
+            "termial": { "name": "express" },
+            "command": "nodemon ./bin/www"
+        },
+        {
+            "label": "express:nodemon:run:change_port",
+            "description": "",
+            "termial": { "name": "express" },
+            "command": "SET PORT=${input:express_port} && nodemon ./bin/www"
+        }
+    ],
+    "variables": {
+        "express_view_engine": {
+            "label": "express view engine",
+            "value": [
+                "jade",
+                "pug",
+                "dust",
+                "ejs",
+                "hbs",
+                "hjs",
+                "twig",
+                "vash"
+            ]
+        },
+        "express_css_engine": {
+            "label": "express css engine",
+            "value": ["less", "stylus", "compass", "sass"]
+        },
+        "express_port": {
+            "label": "",
+            "value": "3000"
+        }
+    }
+}

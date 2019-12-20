@@ -1,0 +1,22 @@
+{
+    "tasks": [
+        {
+            "label": "ruby:run",
+            "description": "run ruby file",
+            "filetypes": [".rb"],
+            "cwd": "${fileDirname}",
+            "command": "ruby ${file}"
+        }
+    ],
+    "variables": {},
+    "onSaveEvents": [
+        {
+            "label": "run ruby",
+            "description": "run ruby file after save",
+            "filetypes": [".rb"],
+            "inActive": false,
+            "cwd": "${fileDirname}",
+            "command": "ruby ${file}"
+        }
+    ]
+}

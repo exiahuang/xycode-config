@@ -1,0 +1,57 @@
+{
+    "tasks": [
+        {
+            "label": "gradle:version",
+            "command": "gradle --version"
+        },
+        {
+            "label": "gradle:help",
+            "command": "gradle --help"
+        },
+        {
+            "label": "gradle:init:project",
+            "termial": { "name": "gradle" },
+            "command": "cd ${openFolderDailog:workspaceFolder} && gradle init --type ${select:gradle_init_type} && code ${workspaceFolder}"
+        },
+        {
+            "label": "gradlew:build",
+            "termial": { "name": "gradle" },
+            "command": "gradlew build"
+        },
+        {
+            "label": "gradlew:tasks",
+            "termial": { "name": "gradle" },
+            "command": "gradlew tasks"
+        },
+        {
+            "label": "gradlew:run",
+            "termial": { "name": "gradle" },
+            "command": "gradlew run"
+        },
+        {
+            "label": "gradle:wrapper",
+            "termial": { "name": "gradle" },
+            "command": "gradle wrapper"
+        },
+        {
+            "label": "gradle:assemble",
+            "termial": { "name": "gradle" },
+            "command": "gradle assemble"
+        }
+    ],
+    "variables": {
+        "gradle_init_type": {
+            "label": "gradle init project",
+            "value": [
+                "basic",
+                "groovy-application",
+                "groovy-library",
+                "java-application",
+                "java-library",
+                "pom",
+                "scala-library"
+            ]
+        }
+    },
+    "onSaveEvents": []
+}

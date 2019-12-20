@@ -5,7 +5,7 @@
         {
             "label": "pretty code.",
             "description": "Prettier is an opinionated code formatter.",
-            "filetypes": [".json", ".javascript", ".js", ".md", ".css", ".vue"],
+            "filetypes": [".json", ".javascript", ".js", ".md", ".css"],
             "inActive": true,
             "cwd": "${fileDirname}",
             "command": "prettier --write \"${file}\" --single-quote=true --end-of-line=lf --arrow-parens=always --tab-width=4"

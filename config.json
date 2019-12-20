@@ -36,15 +36,75 @@
         "platform": ["windows", "linux", "mac"]
     },
     {
+        "name": "xycode.python.json",
+        "label": "python develope",
+        "description": "",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.vbs.json",
+        "label": "vbs develope",
+        "description": "windows vbs only",
+        "platform": ["windows"]
+    },
+    {
+        "name": "xycode.ruby.json",
+        "label": "ruby develope",
+        "description": "",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.go.json",
+        "label": "go language develope",
+        "description": "Go is easy to build simple, reliable, and efficient software.",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
         "name": "xycode.nodejs.json",
         "label": "nodejs develope",
         "description": "",
         "platform": ["windows", "linux", "mac"]
     },
     {
-        "name": "xycode.python.json",
-        "label": "python develope",
+        "name": "xycode.npm.json",
+        "label": "npm command",
         "description": "",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.node-express.json",
+        "label": "node-express develope",
+        "description": "Fast, unopinionated, minimalist web framework for Node.js",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.vue.json",
+        "label": "vue.js develope",
+        "description": "The Progressive JavaScript Framework",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.dotnet_core.json",
+        "label": "dotnet core develope",
+        "description": ".NET Core is a free and open-source",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.heroku.json",
+        "label": "heroku develope",
+        "description": "Heroku is a cloud platform as a service (PaaS)",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.gradle.json",
+        "label": "Gradle Build Tool",
+        "description": "Gradle helps teams build, automate and deliver better software, faster.",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.mkdocs.json",
+        "label": "MkDocs static site",
+        "description": "MkDocs is a fast, simple and downright gorgeous static site generator",
         "platform": ["windows", "linux", "mac"]
     }
 ]

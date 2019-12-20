@@ -1,0 +1,105 @@
+{
+    "tasks": [
+        {
+            "description": "print dotnet core version",
+            "label": "dotnet:version",
+            "command": "dotnet --version"
+        },
+        {
+            "description": "init dotnet core project",
+            "label": "dotnet:new:project",
+            "command": "dotnet new ${select:dotnet_template} --output \"${openFolderDailog:dotnetProjectFolder}\"",
+            "beforeTriggers": [],
+            "afterTriggers": [
+                {
+                    "type": "buildin",
+                    "fn": "SwitchFolder",
+                    "params": ["${dotnetProjectFolder}"]
+                }
+            ]
+        },
+        {
+            "description": "",
+            "label": "dotnet:new:project:force",
+            "termial": { "name": "dotnet_core" },
+            "command": "dotnet new ${select:dotnet_template} --output \"${openFolderDailog:dotnetProjectFolder}\" --force && code ${dotnetProjectFolder}"
+        },
+        {
+            "description": "",
+            "label": "dotnet:run",
+            "termial": { "name": "dotnet_core" },
+            "command": "dotnet run"
+        },
+        {
+            "description": "",
+            "label": "dotnet:build",
+            "termial": { "name": "dotnet_core" },
+            "command": "dotnet build"
+        },
+        {
+            "description": "",
+            "label": "dotnet:publish",
+            "termial": { "name": "dotnet_core" },
+            "command": "dotnet publish --runtime"
+        },
+        {
+            "description": "",
+            "label": "dotnet:restore:bin_debug",
+            "termial": { "name": "dotnet_core" },
+            "command": "dotnet restore -s ./bin/debug"
+        },
+        {
+            "description": "",
+            "label": "dotnet:restore",
+            "termial": { "name": "dotnet_core" },
+            "command": "dotnet restore"
+        },
+        {
+            "description": "",
+            "label": "dotnet:pack",
+            "termial": { "name": "dotnet_core" },
+            "command": "dotnet pack "
+        }
+    ],
+    "variables": {
+        "dotnet_template": {
+            "label": "dotnet core template",
+            "value": [
+                "console",
+                "classlib",
+                "wpf",
+                "wpflib",
+                "wpfcustomcontrollib",
+                "wpfusercontrollib",
+                "winforms",
+                "winformslib",
+                "worker",
+                "mstest",
+                "nunit",
+                "nunit-test",
+                "xunit",
+                "razorcomponent",
+                "page",
+                "viewimports",
+                "viewstart",
+                "blazorserver",
+                "web",
+                "mvc",
+                "webapp",
+                "angular",
+                "react",
+                "reactredux",
+                "razorclasslib",
+                "webapi",
+                "grpc",
+                "gitignore",
+                "globaljson",
+                "nugetconfig",
+                "tool",
+                "webconfig",
+                "sln",
+                "proto"
+            ]
+        }
+    }
+}

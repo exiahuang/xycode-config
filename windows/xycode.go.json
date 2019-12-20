@@ -1,0 +1,29 @@
+{
+    "tasks": [
+        {
+            "label": "go:run",
+            "description": "run go file",
+            "filetypes": [".go"],
+            "cwd": "${fileDirname}",
+            "command": "go run ${file}"
+        },
+        {
+            "label": "go:build",
+            "description": "build go file",
+            "filetypes": [".go"],
+            "cwd": "${fileDirname}",
+            "command": "go build ${file}"
+        }
+    ],
+    "variables": {},
+    "onSaveEvents": [
+        {
+            "label": "run go",
+            "description": "run go file after save",
+            "filetypes": [".go"],
+            "inActive": false,
+            "cwd": "${fileDirname}",
+            "command": "go run ${file}"
+        }
+    ]
+}

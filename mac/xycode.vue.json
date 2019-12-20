@@ -1,0 +1,42 @@
+{
+    "tasks": [
+        {
+            "description": "init vue webpack project",
+            "label": "vue:init:project:webpack",
+            "termial": { "name": "vue" },
+            "cwd": "${vue_project_directory}",
+            "command": "cd ${openFolderDailog:vue_project_directory} && vue init webpack ${input:project_name} && code \"${vue_project_directory}\\${project_name}\""
+        },
+        {
+            "description": "install vue as a local package",
+            "label": "vue:install",
+            "termial": { "name": "vue" },
+            "command": "npm install vue"
+        },
+        {
+            "description": "install vue-cli as a global package",
+            "label": "vue:install:vue-cli",
+            "termial": { "name": "vue" },
+            "command": "npm install vue-cli -g"
+        },
+        {
+            "description": "integrate with bootstrap bootstrap-vue vuetify",
+            "label": "vue:install:bootstrap",
+            "termial": { "name": "vue" },
+            "command": "npm install bootstrap bootstrap-vue vuetify --save"
+        },
+        {
+            "description": "run vue in dev mode",
+            "label": "vue:run:dev",
+            "termial": { "name": "vue" },
+            "command": "npm run dev"
+        },
+        {
+            "description": "build vue project",
+            "label": "vue:build",
+            "termial": { "name": "vue" },
+            "command": "node build/build.js"
+        }
+    ],
+    "variables": {}
+}
