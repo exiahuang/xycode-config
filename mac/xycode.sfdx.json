@@ -497,6 +497,43 @@
             "label": "force:user:permset:assign",
             "description": "",
             "command": "sfdx force:user:permset:assign --targetusername=${select:SFDX_ALIAS} --permsetname ${input:PERMSETNAME}"
+        },
+        {
+            "label": "force:source:diff:metadata",
+            "description": "",
+            "cwd": "${TMPDIR}/xycode/sfdx/",
+            "command": "sfdx force:source:retrieve -p ${file} -u ${select:SFDX_ALIAS}",
+            "beforeTriggers": [
+                {
+                    "type": "buildin",
+                    "fn": "RemoveFile",
+                    "params": ["${TMPDIR}/xycode/sfdx/${relativeFile}"]
+                },
+                {
+                    "type": "buildin",
+                    "fn": "Mkdirs",
+                    "params": ["${TMPDIR}/xycode/sfdx/${relativeFileDirname}"]
+                },
+                {
+                    "type": "buildin",
+                    "fn": "CopyFile",
+                    "params": [
+                        "${XYCODE_PATH}/sfdx/sfdx-project.json",
+                        "${TMPDIR}/xycode/sfdx/sfdx-project.json"
+                    ]
+                }
+            ],
+            "afterTriggers": [
+                {
+                    "type": "buildin",
+                    "fn": "Diff",
+                    "params": [
+                        "${file}",
+                        "${TMPDIR}/xycode/sfdx/${relativeFile}",
+                        "${workspaceFolderBasename} Local <-> Server"
+                    ]
+                }
+            ]
         }
     ],
     "variables": {
