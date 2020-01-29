@@ -1,0 +1,108 @@
+{
+    "tasks": [
+        {
+            "label": "docker:jekyll:pull image",
+            "description": "docker pull image",
+            "command": "docker pull ${input:docker_image_name}",
+            "termial": {
+                "name": "jekyll"
+            },
+            "isNativeCommand": true
+        },
+        {
+            "label": "docker:jekyll:new:project",
+            "description": "jekyll new project",
+            "termial": { "name": "jekyll" },
+            "command": "docker run --rm -v \"${openFolderDailog:jekyll_blog_directory}\":${docker_workspace} ${docker_image_name} jekyll new . && code \"${jekyll_blog_directory}\"",
+            "beforeTriggers": [],
+            "afterTriggers": [],
+            "isNativeCommand": true
+        },
+        {
+            "label": "docker:jekyll:attach docker shell",
+            "description": "open bash",
+            "command": "[ -e /bin/bash ] && /bin/bash || /bin/sh",
+            "termial": {
+                "name": "jekyll"
+            },
+            "dockerOptions": {
+                "openTTY": true
+            }
+        },
+        {
+            "label": "docker:jekyll:create container",
+            "description": "create container",
+            "command": "docker run --rm -it -v \"${workspaceFolder}\":${docker_workspace} --name ${lowercaseWorkspaceName}_jekyll_1 -p ${input:jekyll_port}:${jekyll_port} -e POLLING=true ${docker_image_name} bash",
+            "termial": {
+                "name": "jekyll"
+            },
+            "isNativeCommand": true
+        },
+        {
+            "label": "docker:jekyll:build",
+            "description": "jekyll build",
+            "termial": { "name": "jekyll" },
+            "command": "jekyll build"
+        },
+        {
+            "label": "docker:jekyll:serve",
+            "description": "open jekyll server",
+            "termial": { "name": "jekyll" },
+            "command": "jekyll serve --port ${jekyll_port}"
+        },
+        {
+            "label": "docker:jekyll:serve:trace",
+            "description": "open jekyll server and trace it",
+            "termial": { "name": "jekyll" },
+            "command": "jekyll serve --port ${jekyll_port} --trace"
+        },
+        {
+            "url": "https://github.com/jekyll/jekyll-compose",
+            "label": "docker:jekyll:new:page",
+            "description": "jekyll new page",
+            "termial": { "name": "jekyll" },
+            "command": "bundle exec jekyll page \"${input:title}\""
+        },
+        {
+            "label": "docker:jekyll:new:post",
+            "description": "jekyll new post",
+            "termial": { "name": "jekyll" },
+            "command": "bundle exec jekyll post \"${input:title}\""
+        },
+        {
+            "label": "docker:jekyll:new:draft",
+            "description": "jekyll new draft",
+            "termial": { "name": "jekyll" },
+            "command": "bundle exec jekyll draft \"${input:title}\""
+        },
+        {
+            "label": "docker:jekyll:clean",
+            "description": "clean jekyll",
+            "command": "jekyll clean"
+        },
+        {
+            "label": "docker:jekyll:version",
+            "description": "print jekyll version",
+            "command": "jekyll --version"
+        }
+    ],
+    "variables": {
+        "docker_image_name": {
+            "label": "docker images name",
+            "value": "jekyll/jekyll:3.5"
+        },
+        "docker_workspace": {
+            "label": "docker workspace",
+            "value": "/srv/jekyll"
+        },
+        "jekyll_port": {
+            "label": "jekyll server port",
+            "value": "4000"
+        }
+    },
+    "onSaveEvents": [],
+    "docker": {
+        "dockerContainer": "${lowercaseWorkspaceName}_jekyll_1",
+        "dockerAppRoot": "/srv/jekyll"
+    }
+}

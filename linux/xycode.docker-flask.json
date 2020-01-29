@@ -1,0 +1,136 @@
+{
+    "tasks": [
+        {
+            "label": "docker:flask:build-container",
+            "termial": {
+                "name": "flask"
+            },
+            "description": "docker-compose",
+            "command": "docker-compose -f docker-compose.yml up -d --build",
+            "isNativeCommand": true
+        },
+        {
+            "label": "docker:flask:attach docker shell",
+            "termial": {
+                "name": "flask"
+            },
+            "dockerOptions": {
+                "openTTY": true
+            },
+            "description": "open default termial",
+            "command": "[ -e /bin/bash ] && /bin/bash || /bin/sh"
+        },
+        {
+            "label": "docker:flask:run",
+            "termial": {
+                "name": "flask"
+            },
+            "dockerOptions": {
+                "openTTY": true
+            },
+            "command": "flask run --port 5000"
+        },
+        {
+            "label": "docker:flask:run:debug_mode",
+            "termial": {
+                "name": "flask"
+            },
+            "dockerOptions": {
+                "openTTY": true
+            },
+            "command": "export FLASK_APP=app.py && export FLASK_DEBUG=1 && export WEBAPP_ENV=dev && flask run --host 0.0.0.0 --port 5000"
+        },
+        {
+            "label": "docker:flask:shell",
+            "termial": {
+                "name": "flask"
+            },
+            "dockerOptions": {
+                "openTTY": true
+            },
+            "command": "flask shell"
+        },
+        {
+            "label": "docker:flask:print:restful_api",
+            "termial": {
+                "name": "flask"
+            },
+            "command": "echo app.url_map | flask shell | grep api"
+        },
+        {
+            "label": "docker:flask:db:help",
+            "termial": {
+                "name": "flask"
+            },
+            "dockerOptions": {
+                "openTTY": true
+            },
+            "command": "flask db"
+        },
+        {
+            "label": "docker:flask:db:init",
+            "termial": {
+                "name": "flask"
+            },
+            "dockerOptions": {
+                "openTTY": true
+            },
+            "command": "flask db init"
+        },
+        {
+            "label": "docker:flask:db:migrate -m",
+            "termial": {
+                "name": "flask"
+            },
+            "dockerOptions": {
+                "openTTY": true
+            },
+            "command": "flask db migrate -m \"${input:flask_db_migrate_message}\""
+        },
+        {
+            "label": "docker:flask:db:upgrade",
+            "termial": {
+                "name": "flask"
+            },
+            "dockerOptions": {
+                "openTTY": true
+            },
+            "command": "flask db upgrade"
+        },
+        {
+            "label": "docker:flask:db:upgrade --sql",
+            "termial": {
+                "name": "flask"
+            },
+            "dockerOptions": {
+                "openTTY": true
+            },
+            "command": "flask db upgrade --sql"
+        },
+        {
+            "label": "docker:flask:db:history",
+            "termial": {
+                "name": "flask"
+            },
+            "dockerOptions": {
+                "openTTY": true
+            },
+            "command": "flask db history"
+        },
+        {
+            "label": "docker:flask:db:downgrade",
+            "termial": {
+                "name": "flask"
+            },
+            "dockerOptions": {
+                "openTTY": true
+            },
+            "command": "flask db downgrade ${input:flask_db_migrate_message}"
+        }
+    ],
+    "variables": {},
+    "docker": {
+        "dockerContainer": "${lowercaseWorkspaceName}_flask_1",
+        "dockerAppRoot": "/app/"
+    }
+}

@@ -106,5 +106,23 @@
         "label": "MkDocs static site",
         "description": "MkDocs is a fast, simple and downright gorgeous static site generator",
         "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.docker-express.json",
+        "label": "Docker node express",
+        "description": "Use docker to develope node express",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.docker-flask.json",
+        "label": "Docker python flask",
+        "description": "Use docker to develope python flask",
+        "platform": ["windows", "linux", "mac"]
+    },
+    {
+        "name": "xycode.docker-jekyll.json",
+        "label": "Docker jekyll",
+        "description": "For docker and jekyll blog user",
+        "platform": ["windows", "linux", "mac"]
     }
 ]

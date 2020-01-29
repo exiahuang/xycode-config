@@ -1,0 +1,28 @@
+version: '3.3'
+
+services:
+    flask:
+      build: .
+      ports:
+        - "5000:5000"
+      volumes:
+        - './app:/app'
+      tty: true
+      restart: always
+     # env_file: .env
+     #  command: flask run --host 0.0.0.0 --port 5000
+      depends_on:
+        - mysql
+
+    mysql:
+      image: mysql:5.7
+      volumes:
+        - ./mysql:/var/lib/mysql
+      restart: always
+      ports:
+        - "13307:3306"
+      environment:
+        MYSQL_ROOT_PASSWORD: root_password
+        MYSQL_DATABASE: test_db
+        MYSQL_USER: user1
+        MYSQL_PASSWORD: user_password

@@ -1,0 +1,91 @@
+{
+    "tasks": [
+        {
+            "label": "docker:express:build-container",
+            "description": "docker-compose",
+            "termial": { "name": "express" },
+            "command": "docker-compose -f docker-compose.yml up -d --build",
+            "isNativeCommand": true
+        },
+        {
+            "label": "docker:express:attach docker shell",
+            "description": "open default termial",
+            "command": "[ -e /bin/bash ] && /bin/bash || /bin/sh",
+            "termial": {
+                "name": "express"
+            },
+            "dockerOptions": {
+                "openTTY": true
+            }
+        },
+        {
+            "label": "docker:express:init",
+            "description": "init express project",
+            "command": "express . --view ${select:express_view_engine} --css ${select:express_css_engine} --git && npm install",
+            "termial": {
+                "name": "express"
+            },
+            "dockerOptions": {
+                "openTTY": true
+            }
+        },
+        {
+            "label": "docker:express:run:default",
+            "description": "",
+            "termial": { "name": "express" },
+            "command": "node ./bin/www",
+            "dockerOptions": {
+                "openTTY": true
+            }
+        },
+        {
+            "label": "docker:express:nodemon:run",
+            "description": "",
+            "termial": { "name": "express" },
+            "command": "nodemon ./bin/www",
+            "dockerOptions": {
+                "openTTY": true
+            }
+        },
+        {
+            "label": "docker:express:nodemon:run:change_port",
+            "description": "",
+            "termial": { "name": "express" },
+            "command": "export PORT=${input:express_port} && nodemon ./bin/www",
+            "dockerOptions": {
+                "openTTY": true
+            }
+        }
+    ],
+    "variables": {
+        "express_view_engine": {
+            "label": "express view engine",
+            "value": [
+                "jade",
+                "pug",
+                "dust",
+                "ejs",
+                "hbs",
+                "hjs",
+                "twig",
+                "vash"
+            ]
+        },
+        "express_css_engine": {
+            "label": "express css engine",
+            "value": ["less", "stylus", "compass", "sass"]
+        },
+        "express_port": {
+            "label": "",
+            "value": "3000"
+        },
+        "docker_image_name": {
+            "label": "docker images name",
+            "value": "node"
+        }
+    },
+    "docker": {
+        "dockerContainer": "${lowercaseWorkspaceName}_node_1",
+        "dockerAppRoot": "/app/"
+    }
+}
